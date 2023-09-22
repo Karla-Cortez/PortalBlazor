@@ -1,4 +1,39 @@
-﻿<h3>Docente</h3>
-@code {
+﻿@page "/docentes"
+@using Models
+@using Services
+@inject IDocenteService DocentesService
 
+<MudText Typo="Typo.h4">Docentes</MudText>
+@code {
+    IEnumerable<Docente> docentes = new List<Docente>();
+    protected override async Task OnInitializedAsync()
+    {
+        docentes = await DocenteService.GetAll();
+    }
+}
+
+@if (docentes == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <MudGrid>
+        @foreach (var item in docentes)
+        {
+            <MudItem xs="12" sm="10" md="6" lg="4">
+                <MudCard>
+                    <MudCardHeader Class="blue lighten-1">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@item.Nombre</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+     
+                    <MudCardActions>
+                        <MudButton Link="@($"/detalles/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Detalles</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
 }
