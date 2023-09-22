@@ -1,0 +1,102 @@
+﻿@page "/escuela"
+<head>
+    <title>Información de la Escuela</title>
+    <style>
+        .cuadro {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: red;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .cuadro {
+            perspective: 1000px;
+        }
+
+            .cuadro .front, .cuadro .back {
+                transition: transform 0.6s linear;
+            }
+
+            .cuadro.flip .front {
+                transform: rotateY(180deg);
+                opacity: 1;
+            }
+
+            .cuadro.flip .back {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+
+        .flip {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+            .back .inner {
+                transform: rotateY(180deg);
+            }
+
+        .info {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="infoescuela.jpg" alt="Imagen de la escuela" style="border-radius: 50%;">
+        <h1>Nombre de la Escuela</h1>
+        <p>Información generalasidhalkslkasdlkjalksjdlajsldjlasjdlajlsdjlajsldj</p>
+
+    </div>
+
+    <div class="info">
+        <div class="cuadro @mision.FlipClass" @onclick="mision.Toggle">
+            <div class="front">Misión</div>
+            <div class="back"><div class="inner">Información de la misión...</div></div>
+        </div>
+
+        <div class="cuadro @vision.FlipClass" @onclick="vision.Toggle">
+            <div class="front">Visión</div>
+            <div class="back"><div class="inner">Información de la visión...</div></div>
+        </div>
+
+        <div class="cuadro @valores.FlipClass" @onclick="valores.Toggle">
+            <div class="front">Valores</div>
+            <div class="back"><div class="inner">Información de los valores...</div></div>
+        </div>
+    </div>
+
+    <!-- Aquí puedes agregar tu carrusel de imágenes -->
+</body>
+
+@code {
+
+    public Cuadro mision = new Cuadro();
+    public Cuadro vision = new Cuadro();
+    public Cuadro valores = new Cuadro();
+
+    public class Cuadro
+    {
+        private bool isFlipped;
+
+        public void Toggle()
+        {
+            isFlipped = !isFlipped;
+        }
+
+        public string FlipClass => isFlipped ? "flip" : "";
+    }
+}
