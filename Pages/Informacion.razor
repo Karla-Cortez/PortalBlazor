@@ -1,95 +1,53 @@
-﻿@page "/escuela"
-<head>
-    <title>Información de la Escuela</title>
-    <style>
-        .cuadro {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: red;
-            border: 1px solid black;
-            cursor: pointer;
-        }
+﻿@page "/informacion"
+<MudContainer Fixed="false">
+    <body>
 
-        .cuadro {
-            perspective: 1000px;
-        }
+        <div class="container">
+            <img src="images/escuela.jpg" class="logoimg" alt="Imagen de la escuela" />
+        </div>
+        <h1>Centro Escolar Caserio El Chupadero</h1>
+        <h2><i class="bi bi-geo-alt"></i> Ubicación: Caserio El Chupadero , Santa Rita , Chalatenando, El Salvador  </h2>
+        <br />
+        <div class="info">
+            <div class="cuadro @mision.FlipClass" @onclick="mision.Toggle">
+                <div class="front"><img src="ruta/a/tu/imagen/mision.jpg" alt="Misión"></div>
+                <div class="back"><img src="ruta/a/tu/imagen/info_mision.jpg" alt="Información de la misión"></div>
+            </div>
 
-            .cuadro .front, .cuadro .back {
-                transition: transform 0.6s linear;
-            }
+            <div class="cuadro @vision.FlipClass" @onclick="vision.Toggle">
+                <div class="front"><img src="ruta/a/tu/imagen/vision.jpg" alt="Visión"></div>
+                <div class="back"><img src="ruta/a/tu/imagen/info_vision.jpg" alt="Información de la visión"></div>
+            </div>
 
-            .cuadro.flip .front {
-                transform: rotateY(180deg);
-                opacity: 1;
-            }
+            <div class="cuadro @valores.FlipClass" @onclick="valores.Toggle">
+                <div class="front"><img src="ruta/a/tu/imagen/valores.jpg" alt="Valores"></div>
+                <div class="back"><img src="ruta/a/tu/imagen/info_valores.jpg" alt="Información de los valores"></div>
+            </div>
+        </div>
+        <br />
+        <div class="container1">
+            <div class="left">
+                <a href="https://www.facebook.com" target="_blank" class="button"><i class="bi bi-facebook"></i></a>
+                <a href="https://web.whatsapp.com" target="_blank" class="button"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://mail.google.com" target="_blank" class="button"><i class="bi bi-envelope-at"></i></a>
+            </div>
 
-            .cuadro.flip .back {
-                transform: rotateY(0deg);
-                opacity: 1;
-            }
-
-        .flip {
-            transform: rotateY(180deg);
-        }
-
-        .front, .back {
-            backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .back {
-            transform: rotateY(180deg);
-        }
-
-            .back .inner {
-                transform: rotateY(180deg);
-            }
-
-        .info {
-            display: flex;
-            justify-content: space-around;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <img src="infoescuela.jpg" alt="Imagen de la escuela" style="border-radius: 50%;">
-        <h1>Nombre de la Escuela</h1>
-        <p>Información generalasidhalkslkasdlkjalksjdlajsldjlasjdlajlsdjlajsldj</p>
-
-    </div>
-
-    <div class="info">
-        <div class="cuadro @mision.FlipClass" @onclick="mision.Toggle">
-            <div class="front">Misión</div>
-            <div class="back"><div class="inner">Información de la misión...</div></div>
+            <div class="right">
+                <a href="https://www.google.com/maps/place/Caserio+El+Chupadero,+Santa+Rita,+Chalatenando,+El+Salvador" target="_blank" class="button"><i class="bi bi-geo-alt"></i></a>
+            </div>
         </div>
 
-        <div class="cuadro @vision.FlipClass" @onclick="vision.Toggle">
-            <div class="front">Visión</div>
-            <div class="back"><div class="inner">Información de la visión...</div></div>
-        </div>
 
-        <div class="cuadro @valores.FlipClass" @onclick="valores.Toggle">
-            <div class="front">Valores</div>
-            <div class="back"><div class="inner">Información de los valores...</div></div>
-        </div>
-    </div>
+    </body>
 
-    <!-- Aquí puedes agregar tu carrusel de imágenes -->
-</body>
+    @code {
 
-@code {
+        public Cuadro mision = new Cuadro();
+        public Cuadro vision = new Cuadro();
+        public Cuadro valores = new Cuadro();
 
-    public Cuadro mision = new Cuadro();
-    public Cuadro vision = new Cuadro();
-    public Cuadro valores = new Cuadro();
-
-    public class Cuadro
-    {
+        public class Cuadro
+        {
         private bool isFlipped;
 
         public void Toggle()
@@ -98,5 +56,6 @@
         }
 
         public string FlipClass => isFlipped ? "flip" : "";
+        }
     }
-}
+</MudContainer>

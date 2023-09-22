@@ -1,0 +1,99 @@
+﻿
+.cuadro {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+
+.cuadro .front, .cuadro .back {
+    transition: transform 0.6s linear;
+}
+
+.cuadro.flip .front {
+    transform: rotateY(180deg);
+    opacity: 1;
+}
+
+.cuadro.flip .back {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+.flip {
+    transform: rotateY(360deg);
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+    .back .inner {
+        transform: rotateY(180deg);
+    }
+
+.info {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Añadido para ajustar las imágenes al tamaño del cuadro */
+.front img, .back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    margin: 0;
+}
+
+    .container .logoimg {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+.container1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    gap: 10px;
+}
+
+.right {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 20px 30px;
+    font-size: 30px;
+    text-decoration: none;
+    border-radius: 5px;
+}

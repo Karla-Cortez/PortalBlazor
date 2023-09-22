@@ -1,12 +1,31 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
-    </Found>
-    <NotFound>
-        <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
-        </LayoutView>
-    </NotFound>
-</Router>
+﻿<MudContainer Class="d-flex justify-center">
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <section class="page_404">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="col-sm-10 col-sm-offset-1  text-center">
+                                    <div class="four_zero_four_bg">
+                                        <h1 class="text-center ">404</h1>
+                                    </div>
+                                    <div class="contant_box_404">
+                                        <h1 class="h1">¿No encuentras lo que buscas?</h1>
+                                        <h1>La pagina que estas buscando no esta disponible!</h1>
+                                        <a href="/" class="link_404">Regresar al Inicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</MudContainer>
