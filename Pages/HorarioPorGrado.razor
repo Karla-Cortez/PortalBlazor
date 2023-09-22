@@ -1,0 +1,54 @@
+﻿@page "/munixgrad/{id:int}"
+@using Models
+@using Services
+@inject IHorarioService HorarioService
+
+<MudText Typo="Typo.h4">Horarios</MudText>
+
+@if (horarios == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <MudGrid>
+        @foreach (var item in horarios)
+        {
+            <MudItem xs="12" sm="10" md="6" lg="4">
+                <MudCard>
+                    <MudCardHeader Class="blue lighten-1">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@item.Dia</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardHeader Class="blue lighten-1">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@item.HorarioInicio</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardHeader Class="blue lighten-1">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@item.HorarioSalida</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    <MudCardActions>
+                        <MudButton Link="@($"/detalles/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Detalles</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    IEnumerable<Horario> horarios = new List<Horario>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id > 0)
+            horarios = await HorarioService.GetByGrado(id);
+    }
+}

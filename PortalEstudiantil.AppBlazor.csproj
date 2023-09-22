@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Content Remove="Pages\Docentes.razor" />
-    <Content Remove="Pages\Horario.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,16 +27,10 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Docentes.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Horario.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\Docentes.razor" />
-    <None Include="Pages\Horario.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Horario.razor" />
   </ItemGroup>
 
 </Project>
