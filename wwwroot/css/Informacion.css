@@ -1,58 +1,45 @@
-﻿
-.cuadro {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    border: 1px solid black;
-    cursor: pointer;
+﻿.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flip-card {
+    width: 250px; /* Ajusta el ancho de la tarjeta */
+    height: 110px; /* Ajusta la altura de la tarjeta */
+    margin: 10px; /* Añade un margen alrededor de la tarjeta */
     perspective: 1000px;
 }
 
-
-.cuadro .front, .cuadro .back {
-    transition: transform 0.6s linear;
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
 
-.cuadro.flip .front {
+.flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
-    opacity: 1;
 }
 
-.cuadro.flip .back {
-    transform: rotateY(0deg);
-    opacity: 1;
-}
-
-.flip {
-    transform: rotateY(360deg);
-}
-
-.front, .back {
-    backface-visibility: hidden;
+.flip-card-front, .flip-card-back {
     position: absolute;
-    top: 0;
-    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
 }
 
-.back {
-    transform: rotateY(180deg);
-}
-
-    .back .inner {
-        transform: rotateY(180deg);
-    }
-
-.info {
-    display: flex;
-    justify-content: space-around;
-}
-
-/* Añadido para ajustar las imágenes al tamaño del cuadro */
-.front img, .back img {
+.card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+
 
 .container {
     display: flex;

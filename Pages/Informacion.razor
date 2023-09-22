@@ -6,25 +6,40 @@
             <img src="images/escuela.jpg" class="logoimg" alt="Imagen de la escuela" />
         </div>
         <h1>Centro Escolar Caserio El Chupadero</h1>
-        <h2><i class="bi bi-geo-alt"></i> Ubicación: Caserio El Chupadero , Santa Rita , Chalatenando, El Salvador  </h2>
+        <h2><i class="bi bi-geo-alt"></i> Ubicación: Caserio El Chupadero , Santa Rita , Chalatenango, El Salvador  </h2>
         <br />
         <div class="info">
-            <div class="cuadro @mision.FlipClass" @onclick="mision.Toggle">
-                <div class="front"><img src="ruta/a/tu/imagen/mision.jpg" alt="Misión"></div>
-                <div class="back"><img src="ruta/a/tu/imagen/info_mision.jpg" alt="Información de la misión"></div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img class="card-image" src="images/mision.jpg" alt="Misión">
+                    </div>
+                    <div class="flip-card-back">
+                        <img class="card-image" src="images/misioninfo.jpg" alt="Información de Misión">
+                    </div>
+                </div>
             </div>
-
-            <div class="cuadro @vision.FlipClass" @onclick="vision.Toggle">
-                <div class="front"><img src="ruta/a/tu/imagen/vision.jpg" alt="Visión"></div>
-                <div class="back"><img src="ruta/a/tu/imagen/info_vision.jpg" alt="Información de la visión"></div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img class="card-image" src="images/vision.jpg" alt="Visión">
+                    </div>
+                    <div class="flip-card-back">
+                        <img class="card-image" src="images/visioninfo.jpg" alt="Información de Visión">
+                    </div>
+                </div>
             </div>
-
-            <div class="cuadro @valores.FlipClass" @onclick="valores.Toggle">
-                <div class="front"><img src="ruta/a/tu/imagen/valores.jpg" alt="Valores"></div>
-                <div class="back"><img src="ruta/a/tu/imagen/info_valores.jpg" alt="Información de los valores"></div>
+            <div class="flip-card" onclick="this.classList.toggle('flipped');">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img class="card-image" src="images/valores.jpg" alt="Valores">
+                    </div>
+                    <div class="flip-card-back">
+                        <img class="card-image" src="images/valoresinfo.jpg" alt="Información de Valores">
+                    </div>
+                </div>
             </div>
         </div>
-        <br />
         <div class="container1">
             <div class="left">
                 <a href="https://www.facebook.com" target="_blank" class="button"><i class="bi bi-facebook"></i></a>
@@ -40,22 +55,5 @@
 
     </body>
 
-    @code {
 
-        public Cuadro mision = new Cuadro();
-        public Cuadro vision = new Cuadro();
-        public Cuadro valores = new Cuadro();
-
-        public class Cuadro
-        {
-        private bool isFlipped;
-
-        public void Toggle()
-        {
-            isFlipped = !isFlipped;
-        }
-
-        public string FlipClass => isFlipped ? "flip" : "";
-        }
-    }
 </MudContainer>

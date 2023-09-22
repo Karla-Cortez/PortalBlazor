@@ -1,4 +1,18 @@
-﻿
+﻿@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .loader span {
+        width: 150px;
+        height: 150px;
+    }
+
+    .rocket .fa-rocket {
+        font-size: 2em;
+    }
+}
+
 .containerload {
     display: flex;
     justify-content: center;
@@ -10,6 +24,7 @@
 .loader {
     position: relative;
     display: flex;
+    transform: scale(1.5);
 }
 
     .loader span {
@@ -68,6 +83,7 @@
     justify-content: center;
     align-content: center;
     overflow: hidden;
+
 }
 
     .rocket .fa-rocket {
@@ -108,4 +124,7 @@
     100% {
         transform: translateY(calc(35 * 5px));
     }
+}
+h1 {
+    text-align: center;
 }
