@@ -1,6 +1,6 @@
 ﻿namespace PortalEstudiantil.AppBlazor.Services
 {
-    public class HorarioService
+    public class HorarioService : IHorarioService
     {
     }
 }
