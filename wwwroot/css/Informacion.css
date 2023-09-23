@@ -53,6 +53,8 @@
         border-radius: 50%;
         width: 200px;
         height: 200px;
+        border:1px;
+        border-color: black;
         object-fit: cover;
     }
 
