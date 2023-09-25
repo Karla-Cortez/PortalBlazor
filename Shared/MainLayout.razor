@@ -3,13 +3,13 @@
 <MudThemeProvider />
 
 <MudLayout>
-    <MudAppBar Elevation="1" Class= "amber">
+    <MudAppBar Elevation="1" Class="indigo Darken-3">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5" Class="ml-3">Portal Estudiantil - Centro Escolar Mi Escuelita</MudText>
         <MudSpacer />
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
     </MudAppBar>
-    <MudDrawer Class="pa-4 amber Lighten-3 shades-text text-black " @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+    <MudDrawer Class="pa-4 indigo Darken-3 shades-text text-white " @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu></NavMenu>
     </MudDrawer>
     <MudMainContent >
