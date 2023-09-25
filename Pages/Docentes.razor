@@ -8,7 +8,7 @@
     IEnumerable<Docente> docentes = new List<Docente>();
     protected override async Task OnInitializedAsync()
     {
-        docentes = await DocenteService.GetAll();
+        docentes = await DocentesService.GetAll();
     }
 }
 
@@ -28,9 +28,9 @@ else
                             <MudText Typo="Typo.h6">@item.Nombre</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
-     
+
                     <MudCardActions>
-                        <MudButton Link="@($"/detalles/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Detalles</MudButton>
+                        <MudButton Link="@($"/horario/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Horario</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
