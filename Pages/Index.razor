@@ -1,36 +1,44 @@
 ﻿@page "/"
-
-<MudContainer Class="d-flex justify-center">
-
-    <div class="carousel">
-        <div class="carousel__viewport">
-            <div class="carousel__track">
-                <div class="carousel__slide">
-                    <img src="images/1.jpeg" alt="Imagen 1">
-
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/2.jpg" alt="Imagen 2">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/3.jpg" alt="Imagen 3">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/4.jpeg" alt="Imagen 4">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/5.jpg" alt="Imagen 5">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/6.jpg" alt="Imagen 6">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/7.jpg" alt="Imagen 7">
-                </div>
-            </div>
+<MudCarousel Class="mud-width-full"   Style="height:500px" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+    <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%">
+            <Img Class="mx-auto my-auto" Src="@("/images/1.jpg")" />
         </div>
-    </div>
-</MudContainer>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%; width: 100%;">
+            <Img Class="mx-auto my-auto" style="height:100%; width: 100%;" Src="@("/images/2.jpg")" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%; width: 100%;">
+            <Img Class="mx-auto my-auto" style="height:100%; width: 100%;" Src="@("/images/3.jpg")" />
+        </div>
+    </MudCarouselItem>
+     <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%; width: 100%;">
+            <Img Class="mx-auto my-auto" style="height:100%; width: 100%;" Src="@("/images/4.jpg")" />
+        </div>
+    </MudCarouselItem>
+     <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%; width: 100%;">
+            <Img Class="mx-auto my-auto" style="height:100%; width: 100%;" Src="@("/images/5.jpg")" />
+        </div>
+    </MudCarouselItem>
+     <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%; width: 100%;">
+            <Img Class="mx-auto my-auto" style="height:100%; width: 100%;" Src="@("/images/6.jpg")" />
+        </div>
+    </MudCarouselItem>
+     <MudCarouselItem Transition="@Transition.Slide">
+        <div class="d-flex" style="height:100%; width: 100%;">
+            <Img Class="mx-auto my-auto" style="height:100%; width: 100%;" Src="@("/images/7.jpg")" />
+        </div>
+    </MudCarouselItem>
+</MudCarousel>
+
+
+
 
 
 

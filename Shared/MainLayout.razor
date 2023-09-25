@@ -7,17 +7,20 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5" Class="ml-3">Portal Estudiantil - Centro Escolar Mi Escuelita</MudText>
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        <MudIconButton>
+            <img src="/images/logorazer.png" alt="Icono" style="width:35px;height:35px;" />
+        </MudIconButton>
     </MudAppBar>
     <MudDrawer Class="pa-4 indigo Darken-3 shades-text text-white " @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu></NavMenu>
     </MudDrawer>
-    <MudMainContent >
+    <MudMainContent>
         <MudContainer Class="pa-6">
             @Body
-        </MudContainer>   
+        </MudContainer>
     </MudMainContent>
 </MudLayout>
+
 @code {
     bool _drawerOpen = true;
 
