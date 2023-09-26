@@ -19,5 +19,8 @@ namespace PortalEstudiantil.AppBlazor.Models
 
         public string HorarioSalida { get; set; }
 
+        public Grado grado { get; set; }
+        public Materia materia { get; set; }
+        public Docente docente { get; set; }
     }
 }

@@ -3,7 +3,7 @@
 @using Services
 @inject IHorarioService HorarioService
 
-<MudText Typo="Typo.h4">horarios</MudText>
+<MudText Typo="Typo.h4">Horarios:</MudText>
 
 @if (horarios == null)
 {
@@ -21,27 +21,29 @@ else
                             <MudText Typo="Typo.h6">@item.Dia</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
-                    <MudCardHeader Class="blue lighten-1">
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6">@item.HorarioInicio</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-                    <MudCardHeader Class="blue lighten-1">
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6">@item.HorarioSalida</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-                    
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">@item.grado.Nombre</MudText>
+                    </MudCardContent>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">@item.materia.Nombre</MudText>
+                    </MudCardContent>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">@item.docente.Nombre</MudText>
+                    </MudCardContent>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">@item.HorarioInicio</MudText>
+                    </MudCardContent>
+                    <MudCardContent>
+                        <MudText Typo="Typo.body2">@item.HorarioSalida</MudText>
+                    </MudCardContent>
                     <MudCardActions>
-                        <MudButton Link="@($"/munixgrad/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success" 
-                        Class="text-center">Detalles</MudButton>
+                        <MudButton Link="@($"/detalles/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Detalles</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
         }
     </MudGrid>
 }
-
 
 @code {
     IEnumerable<Horario> horarios = new List<Horario>();

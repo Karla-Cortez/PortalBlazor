@@ -1,4 +1,4 @@
-﻿@page "/munixgrad/{id:int}"
+﻿ @page "/horaxgrad/{id:int}"
 @using Models
 @using Services
 @inject IHorarioService HorarioService
@@ -43,12 +43,12 @@ else
 @code {
     [Parameter]
     public int id { get; set; }
-
+   
     IEnumerable<Horario> horarios = new List<Horario>();
 
     protected override async Task OnInitializedAsync()
     {
         if (id > 0)
-            horarios = await HorarioService.GetByGrado(id);
+            horarios = await HorarioService.GetByDocente(id);
     }
 }
