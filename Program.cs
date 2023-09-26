@@ -13,7 +13,7 @@ builder.Services.AddScoped<ICicloService, CicloService>();
 builder.Services.AddScoped<IDocenteService, DocenteService>();
 builder.Services.AddScoped<IGradoService, GradoService>();
 builder.Services.AddScoped<IHorarioService, HorarioService>();
-//builder.Services.AddScoped<IMateriaService, MateriaService>();
+builder.Services.AddScoped<IMateriaService, MateriaService>();
 builder.Services.AddScoped<IRolService, RolService>();
 builder.Services.AddScoped<ITurnoService, TurnoService>();
 

@@ -1,0 +1,39 @@
+﻿@page "/grados"
+@using Models
+@using Services
+@inject IGradoService GradoService
+
+<MudText Typo="Typo.h4">Grados</MudText>
+@code {
+    IEnumerable<Grado> grados = new List<Grado>();
+    protected override async Task OnInitializedAsync()
+    {
+        grados= await GradoService.GetAll();
+    }
+}
+
+@if (grados == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <MudGrid>
+        @foreach (var item in grados)
+        {
+            <MudItem xs="12" sm="10" md="6" lg="4">
+                <MudCard>
+                    <MudCardHeader Class="blue lighten-1">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@item.Nombre</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+
+                    <MudCardActions>
+                        <MudTd><MudButton Link="@($"/horaxmat/{item.Id}")" Variant="Variant.Outlined" StartIcon="@Icons.Filled.Info" Color="Color.Tertiary">Ver Horario</MudButton></MudTd>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}

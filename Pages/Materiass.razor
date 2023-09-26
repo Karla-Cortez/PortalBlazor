@@ -1,0 +1,39 @@
+﻿@page "/materias"
+@using Models
+@using Services
+@inject IMateriaService MateriaService
+
+<MudText Typo="Typo.h4">Materias</MudText>
+@code {
+    IEnumerable<Materia> materias = new List<Materia>();
+    protected override async Task OnInitializedAsync()
+    {
+        materias = await MateriaService.GetAll();
+    }
+}
+
+@if (materias == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    <MudGrid>
+        @foreach (var item in materias)
+        {
+            <MudItem xs="12" sm="10" md="6" lg="4">
+                <MudCard>
+                    <MudCardHeader Class="blue lighten-1">
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">@item.Nombre</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+
+                    <MudCardActions>
+                        <MudTd><MudButton Link="@($"/horaxmat/{item.Id}")" Variant="Variant.Outlined" StartIcon="@Icons.Filled.Info" Color="Color.Tertiary">Ver Horario</MudButton></MudTd>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}

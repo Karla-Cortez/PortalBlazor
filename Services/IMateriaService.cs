@@ -6,6 +6,6 @@ namespace PortalEstudiantil.AppBlazor.Services
     public interface IMateriaService
     {
         Task<IEnumerable<Materia>> GetAll();
-
     }
+
 }

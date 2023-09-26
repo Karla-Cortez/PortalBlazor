@@ -33,12 +33,12 @@ namespace PortalEstudiantil.AppBlazor.Services
             return JsonSerializer.Deserialize<IEnumerable<Horario>>(respString, options);
         }
 
-        //public async Task<IEnumerable<Horario>> GetByGrado(int idGrado)
-        //{
-        //    var resp = await client.PostAsJsonAsync($"Horario/Buscar", new { GradoId = idGrado });
-        //    string respString = await resp.Content.ReadAsStringAsync();
-        //    return JsonSerializer.Deserialize<IEnumerable<Horario>>(respString, options);
-        //}
+        public async Task<IEnumerable<Horario>> GetByGrado(int idGrado)
+        {
+            var resp = await client.PostAsJsonAsync($"Horario/Buscar", new { GradoId = idGrado });
+            string respString = await resp.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<IEnumerable<Horario>>(respString, options);
+        }
 
         public async Task<Horario> GetById(int id)
         {
@@ -46,11 +46,11 @@ namespace PortalEstudiantil.AppBlazor.Services
             return JsonSerializer.Deserialize<Horario>(resp, options);
         }
 
-        //public async Task<IEnumerable<Horario>> GetByMateria(int idMateria)
-        //{
-        //    var resp = await client.PostAsJsonAsync($"Horario/Buscar", new { MateriaId = idMateria });
-        //    string respString = await resp.Content.ReadAsStringAsync();
-        //    return JsonSerializer.Deserialize<IEnumerable<Horario>>(respString, options);
-        //}
+        public async Task<IEnumerable<Horario>> GetByMateria(int idMateria)
+        {
+            var resp = await client.PostAsJsonAsync($"Horario/Buscar", new { MateriaId = idMateria });
+            string respString = await resp.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<IEnumerable<Horario>>(respString, options);
+        }
     }
 }
