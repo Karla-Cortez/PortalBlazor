@@ -1,13 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
 <MudThemeProvider />
-
+@inject IJSRuntime JS
 <MudLayout>
     <MudAppBar Elevation="1" Class="indigo Darken-3">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5" Class="ml-3">Portal Estudiantil - Centro Escolar Mi Escuelita</MudText>
         <MudSpacer />
-        <MudIconButton>
+        <audio id="audioPlayer" src="/css/1.mp3"></audio>
+        <MudIconButton OnClick="ToggleAudio">
             <img src="/images/logorazer.png" alt="Icono" style="width:35px;height:35px;" />
         </MudIconButton>
     </MudAppBar>
@@ -27,5 +28,22 @@
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+    private bool isPlaying = false;
+
+    private async Task ToggleAudio()
+    {
+        var audioPlayer = await JS.InvokeAsync<IJSObjectReference>("document.getElementById", "audioPlayer");
+
+        if (isPlaying)
+        {
+            await audioPlayer.InvokeVoidAsync("pause");
+        }
+        else
+        {
+            await audioPlayer.InvokeVoidAsync("play");
+        }
+
+        isPlaying = !isPlaying;
     }
 }
