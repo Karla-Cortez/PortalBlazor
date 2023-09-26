@@ -2,6 +2,7 @@
 {
     public class Docente
     {
+        
       
         public Int16 Id { get; set; }
         public string Nombre { get; set; }
@@ -32,5 +33,13 @@
         public int Top_Aux { get; set; }
         
         public string ConfirmPassword_aux { get; set; }
+
+        public Rol rol { get; set; }
+        public Materia materia { get; set; }
+        public Ciclo ciclo { get; set; }
+
+        public Turno turno { get; set; }
+
+
     }
 }

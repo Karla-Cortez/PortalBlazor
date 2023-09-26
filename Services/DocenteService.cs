@@ -1,5 +1,6 @@
 ﻿using PortalEstudiantil.AppBlazor.Models;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace PortalEstudiantil.AppBlazor.Services
@@ -15,9 +16,12 @@ namespace PortalEstudiantil.AppBlazor.Services
 
         public async Task<IEnumerable<Docente>> GetAll()
         {
+
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            string resp = await client.GetStringAsync($"Docente");
-            return JsonSerializer.Deserialize<IEnumerable<Docente>>(resp, options);
+            var resp = await client.PostAsJsonAsync ($"Docente/Buscar", new { top_aux = 10});
+
+            string respString = await resp.Content.ReadAsStringAsync(); 
+            return JsonSerializer.Deserialize<IEnumerable<Docente>>(respString, options);
         }
     }
 }
