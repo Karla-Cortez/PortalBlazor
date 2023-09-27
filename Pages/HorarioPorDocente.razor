@@ -11,36 +11,27 @@
 }
 else
 {
-    <MudGrid>
-        @foreach (var item in horarios)
-        {
-            <MudItem xs="12" sm="10" md="6" lg="4">
-                <MudCard>
-                    <MudCardHeader Class="blue lighten-1">
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6">@item.Dia</MudText>
-                        </CardHeaderContent>
-                    </MudCardHeader>
-                    <MudCardContent>
-                        <MudText Typo="Typo.body2">@item.grado.Nombre</MudText>
-                    </MudCardContent>
-                    <MudCardContent>
-                        <MudText Typo="Typo.body2">@item.materia.Nombre</MudText>
-                    </MudCardContent>
-                    
-                    <MudCardContent>
-                        <MudText Typo="Typo.body2">@item.HorarioInicio</MudText>
-                    </MudCardContent>
-                    <MudCardContent>
-                        <MudText Typo="Typo.body2">@item.HorarioSalida</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudButton Link="@($"/detalles/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Detalles</MudButton>
-                    </MudCardActions>
-                </MudCard>
-            </MudItem>
-        }
-    </MudGrid>
+    <MudTable Items="@horarios" Hover="true" Breakpoint="Breakpoint.Sm">
+        <HeaderContent>
+            <MudTh>Día:</MudTh>
+            <MudTh>Grado:</MudTh>
+            <MudTh>Materia</MudTh>
+            <MudTh>Hora de inicio:</MudTh>
+            <MudTh>Hora de salida:</MudTh>
+            <MudTh></MudTh>
+        </HeaderContent>
+
+        <RowTemplate Context="item">
+            <MudTd>@item.Dia</MudTd>
+            <MudTd>@item.grado.Nombre</MudTd>
+            <MudTd>@item.materia.Nombre</MudTd>
+            <MudTd>@item.HorarioInicio</MudTd>
+            <MudTd>@item.HorarioSalida</MudTd>
+            <MudTd><MudButton Link="@($"/detalles/{item.Id}")" Variant="Variant.Outlined" Color="Color.Success">Detalles</MudButton></MudTd>
+        </RowTemplate>
+    </MudTable>
+
+
 }
 
 @code {
